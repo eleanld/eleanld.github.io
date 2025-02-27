@@ -7,7 +7,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://example.com/category/编程/</loc>
+    <loc>http://example.com/category/科技/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -19,7 +19,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://example.com/category/科技/</loc>
+    <loc>http://example.com/category/编程/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -158,6 +158,72 @@
   </url>
   <url>
     <loc>http://example.com/article/2ba1da9f1777fcb17c91632fc4369a19.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/1372cf64ee3ebe176a4ba290ccc2730b.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/c80b650e411532dd7fd5bffb07567ec7.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/58e0f742f44f9b46c11b8a4488d5b247.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/1626252d200dfd7f2698056215c29192.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/f66a7a47f3d1c19f4ce8b49be2bcfc8a.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/202495bb7b171e626bfaf008803a8288.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/c075699dcf60b119a8a415883548762a.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/b34597e39613cc6441fc9bc73f6641ea.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/42fe3001aece3096765a341db1c5e6cd.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/97ae3ec3c66c35928d4e6f63a80b57ad.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/b93fe492c341644eff6cfbb6da7574ac.html</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
