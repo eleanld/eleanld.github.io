@@ -7,7 +7,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+<<<<<<< HEAD
     <loc>http://example.com/category/科技/</loc>
+=======
+    <loc>http://example.com/category/编程/</loc>
+>>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -19,7 +23,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+<<<<<<< HEAD
     <loc>http://example.com/category/编程/</loc>
+=======
+    <loc>http://example.com/category/科技/</loc>
+>>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -162,6 +170,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+<<<<<<< HEAD
   <url>
     <loc>http://example.com/article/1372cf64ee3ebe176a4ba290ccc2730b.html</loc>
     <lastmod>2025-02-27</lastmod>
@@ -228,4 +237,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+=======
+>>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
 </urlset>
