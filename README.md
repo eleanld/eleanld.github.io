@@ -1,1 +1,0 @@
-# lelanld.github.io

@@ -3,31 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>一文看懂 DeepSeek 开源项目第三弹，300 行代码揭示 V3/R1 推理效率背后的关键 - 科技 - 内容聚合</title>
     <meta name="description" content="DeepSeek 开源项目第三弹来了<p>#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</p><p>
 <a href="https://www.ifanr.com">爱范儿</a> |
 <a href="https://www.ifanr.com/16...">
     <meta name="keywords" content="一文看懂 DeepSeek 开源项目第三弹，300 行代码揭示 V3/R1 推理效率背后的关键,科技,内容聚合,知识,编程">
-=======
-    <title>一文看懂 DeepSeek 开源项目第三弹，300 行代码揭示 V3/R1 推理效率背后的关键 - 内容聚合</title>
-    <meta name="description" content="DeepSeek 开源项目第三弹来了<p>#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</p><p>
-<a href="https://www.ifanr.com">爱范儿</a> |
-<a href="https://www.ifanr.com/1615619">原文链接</a> ·
-<a href="https://www.ifanr.com/1615619#comments">查看评论</a> ·
-<a href="https://weibo.com/ifanr">新浪微博</a>
-</p>
-
-<br />
-<div style="text-align: center; border-top: 1px dotted #ccc;">
-</div>">
-    <meta name="keywords" content="一文看懂 DeepSeek 开源项目第三弹，300 行代码揭示 V3/R1 推理效率背后的关键,科技,内容聚合">
->>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
-<<<<<<< HEAD
 <!-- 百度联盟横幅广告 -->
 <div style="margin: 10px auto; text-align: center;">
     <script type="text/javascript">
@@ -44,22 +28,6 @@
     </script>
     <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer"></script>
 </div>
-=======
-<!-- 百度联盟广告 -->
-<script type="text/javascript">
-    (function() {
-        var s = "_" + Math.random().toString(36).slice(2);
-        document.write('<div id="' + s + '"></div>');
-        (window.slotbydup=window.slotbydup || []).push({
-            id: 'u000000',
-            container: s,
-            size: '728,90',
-            display: 'inlay-fix'
-        });
-    })();
-</script>
-<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer"></script>
->>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
 
     <header>
         <div class="container">
@@ -68,19 +36,11 @@
                 <ul>
                     <li><a href="/">首页</a></li>
                     
-<<<<<<< HEAD
-                    <li><a href="/category/科技/">科技</a></li>
-                    
                     <li><a href="/category/知识/">知识</a></li>
                     
                     <li><a href="/category/编程/">编程</a></li>
-=======
-                    <li><a href="/category/编程/">编程</a></li>
-                    
-                    <li><a href="/category/知识/">知识</a></li>
                     
                     <li><a href="/category/科技/">科技</a></li>
->>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
                     
                 </ul>
             </nav>
@@ -99,7 +59,6 @@
     </div>
     
     <div class="article-content">
-<<<<<<< HEAD
 <!-- 百度联盟信息流广告 -->
 <div style="margin: 15px auto; text-align: center;">
     <script type="text/javascript">
@@ -136,8 +95,6 @@
     <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer"></script>
 </div>
 
-=======
->>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
         <p><img alt="" class="alignnone size-full wp-image-1615657" height="3000" src="https://s3.ifanr.com/wp-content/uploads/2025/02/4-3.jpg" width="3000" /></p>
 <p>开源周进行到第三天，DeepSeek 不仅带来了技术，还传出 R2 正在路上的好消息。作为用户，一边见识着 DeepSeek 抛出来的一个个技术库，还能看到应用了这些技术的模型，怎么不算一种见证巨星的诞生。</p>
 <p>今天出场的是 DeepGEMM，是一个专为干净、高效的 FP8 通用矩阵乘法 (GEMM) 而设计的库，具有细粒度缩放功能，如DeepSeek-V3中所述。它支持普通和混合专家 (MoE) 分组 GEMM。该库用 CUDA 编写，在安装过程中无需编译，而是使用轻量级即时 (JIT) 模块在运行时编译所有内核。</p>
@@ -168,24 +125,6 @@
 <p>DeepGEMM 支持普通 GEMM 和混合专家（MoE）分组 GEMM，这些任务的计算需求各不相同。JIT 编译能根据任务特点，临时调整代码，直接调动张量核心的FP8计算或变换引擎功能，减少浪费，提高速度。</p>
 <p>怎么形容这样一种技术路线呢：<strong>纤巧、轻量、锋利</strong>。</p>
 <p>对于广大开发者来说，DeepGEMM 可以说是又一个福音。以下是部署相关的信息，大家不妨玩起来。</p>
-<<<<<<< HEAD
-=======
-<!-- 百度联盟广告 -->
-<script type="text/javascript">
-    (function() {
-        var s = "_" + Math.random().toString(36).slice(2);
-        document.write('<div id="' + s + '"></div>');
-        (window.slotbydup=window.slotbydup || []).push({
-            id: 'u000000',
-            container: s,
-            size: '300,250',
-            display: 'inlay-fix'
-        });
-    })();
-</script>
-<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer"></script>
-
->>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
 <h3>DeepGEMM 部署指南</h3>
 <p>DeepGEMM 是一个专为 FP8 通用矩阵乘法（GEMM）优化的库，具备精细的缩放机制，并在 DeepSeek-V3 中提出。它支持标准 GEMM 和混合专家（MoE）分组 GEMM。该库采用 CUDA 编写，无需在安装时进行预编译，而是通过轻量级的即时编译（JIT）模块在运行时编译所有核心函数。</p>
 <p>目前，DeepGEMM 仅支持 NVIDIA Hopper 张量核心。针对 FP8 张量核心计算精度不足的问题，它采用 CUDA 核心的两级累积（提升）技术进行优化。尽管借鉴了一些 CUTLASS 和 CuTe 的概念，DeepGEMM 并未过度依赖它们的模板或数学运算，而是以简洁为目标，仅包含一个核心计算核函数，代码量约 300 行。这使得 DeepGEMM 成为学习 Hopper FP8 矩阵乘法与优化技术的清晰且易于理解的参考资源。</p>
@@ -280,8 +219,7 @@ https://github.com/deepseek-ai/DeepGEMM</p>
     <footer>
         <div class="container">
             <p>© 2025-02-27 内容聚合平台 - 自动聚合各大网站优质内容</p>
-<<<<<<< HEAD
-            <p>生成时间: 2025-02-27 11:39:27</p>
+            <p>生成时间: 2025-02-27 11:44:59</p>
         </div>
     </footer>
 
@@ -301,26 +239,6 @@ https://github.com/deepseek-ai/DeepGEMM</p>
     </script>
     <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer"></script>
 </div>
-=======
-            <p>生成时间: 2025-02-27 10:07:16</p>
-        </div>
-    </footer>
-
-<!-- 百度联盟广告 -->
-<script type="text/javascript">
-    (function() {
-        var s = "_" + Math.random().toString(36).slice(2);
-        document.write('<div id="' + s + '"></div>');
-        (window.slotbydup=window.slotbydup || []).push({
-            id: 'u000000',
-            container: s,
-            size: '728,90',
-            display: 'inlay-fix'
-        });
-    })();
-</script>
-<script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer"></script>
->>>>>>> f29074a2837d392830f582ab35d657efeb3185c2
 
 </body>
 </html>
