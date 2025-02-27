@@ -109,13 +109,13 @@
     <loc>http://example.com/article/64a3266e1f343181cd8bdb7ecd9f3bcb.html</loc>
   </url>
   <url>
+    <loc>http://example.com/category/编程/</loc>
+  </url>
+  <url>
     <loc>http://example.com/category/知识/</loc>
   </url>
   <url>
     <loc>http://example.com/category/科技/</loc>
-  </url>
-  <url>
-    <loc>http://example.com/category/编程/</loc>
   </url>
   <url>
     <loc>http://example.com/</loc>
