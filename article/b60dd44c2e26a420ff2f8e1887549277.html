@@ -4,16 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>一文看懂 DeepSeek 开源项目第三弹，300 行代码揭示 V3/R1 推理效率背后的关键 - 内容聚合平台</title>
-    <meta name="description" content="DeepSeek 开源项目第三弹来了&lt;p&gt;#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。&lt;/p&gt;&lt;p&gt;
-&lt;a href=&#34;https://www.ifanr.com&#34;&gt;爱范儿&lt;/a&gt; |
-&lt;a href=&#34;https://www.ifanr.com/1615619&#34;&gt;原文链接&lt;/a&gt; ·
-&lt;a href=&#34;https://www.ifanr.com/1615619#comments&#34;&gt;查看评论&lt;/a&gt; ·
-&lt;a href=&#34;https://weibo.com/ifanr&#34;&gt;新浪微博&lt;/a&gt;
-&lt;/p&gt;
-
-&lt;br /&gt;
-&lt;div style=&#34;text-align: center; border-top: 1px dotted #ccc;&#34;&gt;
-&lt;/div&gt;">
+    <meta name="description" content="开源周进行到第三天，DeepSeek 不仅带来了技术，还传出 R2 正在路上的好消息。作为用户，一边见识着 DeepSeek 抛出来的一个个技术库，还能看到应用了这些技术的模型，怎么不算一种见证巨星的诞生。 今天出场的是 DeepGEMM，是一个专为干净、高效的 FP8 通用矩阵乘法 (GEMM) 而设计的库，具有细粒度缩放功能，如DeepSeek-V3中所述。">
     <meta name="keywords" content="科技,一文看懂 DeepSeek 开源项目第三弹，300 行代码揭示 V3/R1 推理效率背后的关键,内容聚合,RSS">
     <meta name="baidu_union_verify" content="510a543addc7ed99a9a708cfda8fc193">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1703009465898931" crossorigin="anonymous"></script>
@@ -82,10 +73,10 @@
     </div>
     
     <div class="article-content">
-        <p><img alt="" class="alignnone size-full wp-image-1615657" height="3000" src="https://s3.ifanr.com/wp-content/uploads/2025/02/4-3.jpg" width="3000" /></p>
+        <p><img alt="" src="https://s3.ifanr.com/wp-content/uploads/2025/02/4-3.jpg"/></p>
 <p>开源周进行到第三天，DeepSeek 不仅带来了技术，还传出 R2 正在路上的好消息。作为用户，一边见识着 DeepSeek 抛出来的一个个技术库，还能看到应用了这些技术的模型，怎么不算一种见证巨星的诞生。</p>
 <p>今天出场的是 DeepGEMM，是一个专为干净、高效的 FP8 通用矩阵乘法 (GEMM) 而设计的库，具有细粒度缩放功能，如DeepSeek-V3中所述。它支持普通和混合专家 (MoE) 分组 GEMM。该库用 CUDA 编写，在安装过程中无需编译，而是使用轻量级即时 (JIT) 模块在运行时编译所有内核。</p>
-<p><img alt="" class="alignnone size-full wp-image-1615655" height="934" src="https://s3.ifanr.com/wp-content/uploads/2025/02/2-13.png" width="1192" /></p>
+<p><img alt="" src="https://s3.ifanr.com/wp-content/uploads/2025/02/2-13.png"/></p>
 <p>没有说 DeepSeek 不厉害的意思，但这三天的开源都能看出，即便背靠幻方，他们始终不像大厂那样资源雄厚，必须在压榨计算资源方面狠下功夫。</p>
 <p>包括这次的 GeepGEMM 仍然没有离开这个主旋律，相比于之前的技术，DeepGEMM 的优势在于：</p>
 <ul>
@@ -99,16 +90,16 @@
 <p>更高的效率和更灵活的部署，是 DeepGEMM 的亮点，核心逻辑仅约 300 行代码，却在大多数矩阵尺寸上超越了专家级别调优的内核。Hopper GPUs 上最高可达 1350+ FP8 TFLOPS。</p>
 <p>FP8 是一种压缩数字的方法，相当于把原本需要 32 位或 16 位存储的数字，精简成 8 位存储。<strong>就像你用更小的便利贴记笔记，虽然每张纸能写的内容少了，但携带和传递更快</strong>。</p>
 <p>这种压缩计算的好处是内存占用减少——同样大小的任务，需要的「便利贴」更少，搬运小纸片比大文件快，因此计算速度也更快。但挑战是很容易出错。</p>
-<p><img alt="" class="alignnone size-full wp-image-1615654" height="600" src="https://s3.ifanr.com/wp-content/uploads/2025/02/1-14.png" width="1200" /></p>
+<p><img alt="" src="https://s3.ifanr.com/wp-content/uploads/2025/02/1-14.png"/></p>
 <p>为了解决 FP8 精度问题，DeepGEMM 用了巧妙的「两步法」：用 FP8 进行大批量乘法，像用计算器快速按出一串结果。这个步骤里，误差在所难免。</p>
 <p>但没关系，还有第二步：高精度汇总。每隔一段时间，就把这些结果转成更精确的 32 位数累加，像用草稿纸仔细核对总和，避免误差积累。</p>
 <p>先跑，再通过两级累积防错。通过这种设计，<strong>DeepGEMM 让 AI 模型在手机、电脑等设备上运行得更流畅，同时减少耗电，适合未来更复杂的应用场景</strong>。</p>
-<p><img alt="" class="alignnone size-full wp-image-1615656" height="4016" src="https://s3.ifanr.com/wp-content/uploads/2025/02/3-3.jpg" width="6016" /></p>
+<p><img alt="" src="https://s3.ifanr.com/wp-content/uploads/2025/02/3-3.jpg"/></p>
 <p>包括对 JIT 编译的应用，也是类似的思路。JIT编译，全称是「Just-In-Time」编译，中文可以叫即时编译，相对应的概念是静态编译。</p>
 <p>一般的程序在你用之前就得全部写好、编译好，变成电脑能懂的语言，但 JIT 编译不一样，它是程序运行的时候才把代码变成电脑能执行的指令。</p>
 <p>它可以根据你的电脑情况（比如NVIDIA Hopper显卡）现场调整代码，量身定制出最适合的指令，不像提前编译那样死板，这样程序就能跑得更顺畅。只编译当下要用的部分，不浪费时间和空间，让一切都变得刚刚好。</p>
 <p>Hopper 张量核心和 JIT 编译是最佳搭档。JIT编译可以在运行时根据你的Hopper显卡情况，现场生成最优的代码，让张量核心的计算效率拉满。</p>
-<p><img alt="" class="alignnone size-full wp-image-1615657" height="3000" src="https://s3.ifanr.com/wp-content/uploads/2025/02/4-3.jpg" width="3000" /></p>
+<p><img alt="" src="https://s3.ifanr.com/wp-content/uploads/2025/02/4-3.jpg"/></p>
 <p>DeepGEMM 支持普通 GEMM 和混合专家（MoE）分组 GEMM，这些任务的计算需求各不相同。JIT 编译能根据任务特点，临时调整代码，直接调动张量核心的FP8计算或变换引擎功能，减少浪费，提高速度。</p>
 <p>怎么形容这样一种技术路线呢：<strong>纤巧、轻量、锋利</strong>。</p>
 <p>对于广大开发者来说，DeepGEMM 可以说是又一个福音。以下是部署相关的信息，大家不妨玩起来。</p>
@@ -120,11 +111,11 @@
 <p>我们在 H800 上使用 NVCC 12.8 进行测试，涵盖 DeepSeek-V3/R1 推理过程中可能使用的所有矩阵形状（包括预填充和解码，但不涉及张量并行）。所有加速比指标均基于我们内部精心优化的 CUTLASS 3.6 实现进行对比计算。</p>
 <p>DeepGEMM 在某些特定矩阵形状下的表现不够理想，如果你对优化有兴趣，欢迎提交优化相关的 PR。</p>
 <p><strong>密集模型的标准 GEMM</strong></p>
-<p><img alt="" class="alignnone size-full wp-image-1615622" height="1406" src="https://s3.ifanr.com/wp-content/uploads/2025/02/113.png" width="1218" /></p>
+<p><img alt="" src="https://s3.ifanr.com/wp-content/uploads/2025/02/113.png"/></p>
 <p><strong>MoE 模型的分组 GEMM（连续布局）</strong></p>
-<p><img alt="" class="alignnone size-full wp-image-1615623" height="380" src="https://s3.ifanr.com/wp-content/uploads/2025/02/114.png" width="1494" /></p>
+<p><img alt="" src="https://s3.ifanr.com/wp-content/uploads/2025/02/114.png"/></p>
 <p><strong>MoE 模型的分组 GEMM（掩码布局）</strong></p>
-<p><img alt="" class="alignnone size-full wp-image-1615620" height="528" src="https://s3.ifanr.com/wp-content/uploads/2025/02/111.png" width="1494" /></p>
+<p><img alt="" src="https://s3.ifanr.com/wp-content/uploads/2025/02/111.png"/></p>
 <h3><strong>快速开始</strong></h3>
 <p><strong>环境要求</strong></p>
 <ul>
@@ -135,34 +126,56 @@
 <li>CUTLASS 3.6 及以上版本（可通过 Git 子模块克隆）</li>
 </ul>
 <p><strong>开发</strong></p>
-<blockquote><p># Submodule must be cloned<br />
-git clone &#8211;recursive git@github.com:deepseek-ai/DeepGEMM.git</p>
-<p># Make symbolic links for third-party (CUTLASS and CuTe) include directories<br />
+<blockquote><p># Submodule must be cloned<br/>
+git clone –recursive git@github.com:deepseek-ai/DeepGEMM.git</p>
+<p># Make symbolic links for third-party (CUTLASS and CuTe) include directories<br/>
 python setup.py develop</p>
-<p># Test JIT compilation<br />
+<p># Test JIT compilation<br/>
 python tests/test_jit.py</p>
-<p># Test all GEMM implements (normal, contiguous-grouped and masked-grouped)<br />
+<p># Test all GEMM implements (normal, contiguous-grouped and masked-grouped)<br/>
 python tests/test_core.py</p></blockquote>
 <p><strong>安装</strong></p>
 <blockquote><p>python setup.py install</p></blockquote>
 <p>然后，在你的 Python 项目中导入 deep_gemm，尽情使用吧！</p>
-<p>附上 GitHub 开源地址：<br />
+<p>附上 GitHub 开源地址：<br/>
 https://github.com/deepseek-ai/DeepGEMM</p>
 <p>作者：刘娅、莫崇宇</p>
 <p>#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。</p><p>
-<a href="https://www.ifanr.com">爱范儿</a> |
-<a href="https://www.ifanr.com/1615619">原文链接</a> ·
-<a href="https://www.ifanr.com/1615619#comments">查看评论</a> ·
-<a href="https://weibo.com/ifanr">新浪微博</a>
+<a href="https://www.ifanr.com" rel="noopener noreferrer" target="_blank">爱范儿</a> |
+<a href="https://www.ifanr.com/1615619" rel="noopener noreferrer" target="_blank">原文链接</a> ·
+<a href="https://www.ifanr.com/1615619#comments" rel="noopener noreferrer" target="_blank">查看评论</a> ·
+<a href="https://weibo.com/ifanr" rel="noopener noreferrer" target="_blank">新浪微博</a>
 </p>
+<br/>
 
-<br />
-<div style="text-align: center; border-top: 1px dotted #ccc;">
-</div>
     </div>
     
     <div class="article-images">
         <h3>相关图片</h3>
+        <div class="image-item">
+            <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/4-3.jpg" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/2-13.png" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/1-14.png" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/3-3.jpg" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/4-3.jpg" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/113.png" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/114.png" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/111.png" alt="图片">
+        </div>
         <div class="image-item">
             <img src="https://s3.ifanr.com/wp-content/uploads/2025/02/4-3.jpg" alt="图片">
         </div>
@@ -266,7 +279,7 @@ https://github.com/deepseek-ai/DeepGEMM</p>
             </div>
             <div class="footer-bottom">
                 <p>© 2025-02-27 内容聚合平台 - 自动聚合各大网站优质内容</p>
-                <p>生成时间: 2025-02-27 14:47:06</p>
+                <p>生成时间: 2025-02-27 15:08:31</p>
             </div>
         </div>
     </footer>

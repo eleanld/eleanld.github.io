@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>聊聊 nostr 和 审查 - 内容聚合平台</title>
-    <meta name="description" content="&lt;p&gt;这两天在网络上又有一个东西火了，Twitter 的创始人 @jack 新的社交 iOS App  Damus 上苹果商店（第二天就因为违反中国法律在中国区下架了...&lt;/p&gt;
-&lt;p class=&#34;read-more&#34;&gt;&lt;a class=&#34;btn btn-default&#34; href=&#34;https://coolshell.cn/articles/22367.html&#34;&gt; Read More&lt;span class=&#34;screen-reader-text&#34;&gt;  Read More&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-The post &lt;a href=&#34;https://coolshell.cn/articles/22367.html&#34;&gt;聊聊 nostr 和 审查&lt;/a&gt; first appeared on &lt;a href=&#34;https://coolshell.cn&#34;&gt;酷 壳 - CoolShell&lt;/a&gt;.">
+    <meta name="description" content="这两天在网络上又有一个东西火了，Twitter 的创始人 @jack 新的社交 iOS App Damus 上苹果商店（第二天就因为违反中国法律在中国区下架了），这个软件是一个去中心化的 Twitter，使用到的是 nostr – Notes and Other Stuff Transmitted by Relays 的协议（ 协议简介 ， 协议细节 ），协议简介中有很大的篇幅是在批评Twitte...">
     <meta name="keywords" content="编程,聊聊 nostr 和 审查,内容聚合,RSS">
     <meta name="baidu_union_verify" content="510a543addc7ed99a9a708cfda8fc193">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1703009465898931" crossorigin="anonymous"></script>
@@ -68,14 +66,14 @@ The post &lt;a href=&#34;https://coolshell.cn/articles/22367.html&#34;&gt;聊聊
     </div>
     
     <div class="article-content">
-        <p><img alt="" class="alignright size-medium wp-image-22368" height="150" src="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png" width="300" />这两天在网络上又有一个东西火了，Twitter 的创始人 <a href="https://twitter.com/jack">@jack</a> 新的社交 iOS App  <a href="https://apps.apple.com/ca/app/damus/id1628663131" rel="noopener" target="_blank">Damus</a> 上苹果商店（第二天就因为违反中国法律在中国区下架了），这个软件是一个去中心化的 Twitter，使用到的是 nostr &#8211; Notes and Other Stuff Transmitted by Relays 的协议（<a href="https://github.com/nostr-protocol/nostr" rel="noopener" target="_blank">协议简介</a>，<a href="https://github.com/nostr-protocol/nips" rel="noopener" target="_blank">协议细节</a>），协议简介中有很大的篇幅是在批评Twitter和其相类似的中心化的产品，如：<a href="https://mastodon.social/" rel="noopener" target="_blank">Mastodon</a> 和 <a href="https://scuttlebutt.nz/" rel="noopener" target="_blank">Secure Scuttlebutt</a> 。我顺着去看了一下这个协议，发现这个协议真是非常的简单，简单到几句话就可以讲清楚了。</p>
+        <p><img alt="" src="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png"/>这两天在网络上又有一个东西火了，Twitter 的创始人 <a href="https://twitter.com/jack" rel="noopener noreferrer" target="_blank">@jack</a> 新的社交 iOS App  <a href="https://apps.apple.com/ca/app/damus/id1628663131" rel="noopener noreferrer" target="_blank">Damus</a> 上苹果商店（第二天就因为违反中国法律在中国区下架了），这个软件是一个去中心化的 Twitter，使用到的是 nostr – Notes and Other Stuff Transmitted by Relays 的协议（<a href="https://github.com/nostr-protocol/nostr" rel="noopener noreferrer" target="_blank">协议简介</a>，<a href="https://github.com/nostr-protocol/nips" rel="noopener noreferrer" target="_blank">协议细节</a>），协议简介中有很大的篇幅是在批评Twitter和其相类似的中心化的产品，如：<a href="https://mastodon.social/" rel="noopener noreferrer" target="_blank">Mastodon</a> 和 <a href="https://scuttlebutt.nz/" rel="noopener noreferrer" target="_blank">Secure Scuttlebutt</a> 。我顺着去看了一下这个协议，发现这个协议真是非常的简单，简单到几句话就可以讲清楚了。</p>
 <h4>通讯过程</h4>
 <ul>
 <li>这个协议中有两个东西，一个是 client，一个是 relay，client 就是用户社交的客户端，relay 就是转发服务器。</li>
 <li>用户不需要注册，用户只需要有一个密钥对（公钥+私钥）就好了，然后把要发的信息做签名，发给一组 relays</li>
 <li>然后你的 Follower 就可以从这些 relays 上订阅到你的信息。</li>
 </ul>
-<p><span id="more-22367"></span></p>
+
 <h4>技术细节摘要</h4>
 <ul>
 <li>技术实现上，nostr 使用 websocket + JSON 的方式。其中主要是下面这么几个指令
@@ -145,8 +143,8 @@ The post &lt;a href=&#34;https://coolshell.cn/articles/22367.html&#34;&gt;聊聊
 </ul>
 <p>如果审查是在这个框架下运作的话，虽然不完美，但至少会在一种公允的基础下运作，是透明公开的，也是集体决策的。</p>
 <p>开源软件社区是一个很成功的示范，所以，我觉得只有技术而没有一个良性的可持续运作的社区，是不可能解决问题的，<strong>干净整齐的环境是一定要有人打扫和整理的</strong>。</p>
-<p>&nbsp;</p>
-<figure class="wp-caption aligncenter" id="attachment_22371" style="width: 300px;"><img alt="欢迎关注我 npub1w6r99545cxea6z76e8nvzjxnymjt4nrsddld33almtm78z7fz95s3c94nu" class="wp-image-22371 size-medium" height="289" src="https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533-300x289.jpg" width="300" /><figcaption class="wp-caption-text" id="caption-attachment-22371">欢迎关注我 npub1w6r99545cxea6z76e8nvzjxnymjt4nrsddld33almtm78z7fz95s3c94nu</figcaption></figure>
+<p> </p>
+<img alt="欢迎关注我 npub1w6r99545cxea6z76e8nvzjxnymjt4nrsddld33almtm78z7fz95s3c94nu" src="https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533-300x289.jpg"/>欢迎关注我 npub1w6r99545cxea6z76e8nvzjxnymjt4nrsddld33almtm78z7fz95s3c94nu
 <p>（全文完）<!--
 
 
@@ -162,15 +160,38 @@ The post &lt;a href=&#34;https://coolshell.cn/articles/22367.html&#34;&gt;聊聊
  
 
 --></p>
-<div style="margin-top: 15px; font-size: 16px; color: #cc0000;">
-<p align="center"><strong>（转载本站文章请注明作者和出处 <a href="https://coolshell.cn/">酷 壳 &#8211; CoolShell</a> ，请勿用于任何商业用途）</strong></p>
-</div>
 
-<div class="wp_rp_wrap  wp_rp_vertical_m"><div class="wp_rp_content"><h3 class="related_post_title">相关文章</h3><ul class="related_post wp_rp"><li><a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/18654.html"><img alt="记一次Kubernetes/Docker网络排障" height="150" src="https://coolshell.cn/wp-content/uploads/2018/12/docker-networking-1-150x150.png" width="150" /></a><a class="wp_rp_title" href="https://coolshell.cn/articles/18654.html">记一次Kubernetes/Docker网络排障</a></li><li><a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/9859.html"><img alt="Alan Cox：单向链表中prev指针的妙用" height="150" src="https://coolshell.cn/wp-content/uploads/2013/06/Alan-Cox-150x150.jpg" width="150" /></a><a class="wp_rp_title" href="https://coolshell.cn/articles/9859.html">Alan Cox：单向链表中prev指针的妙用</a></li><li><a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/5247.html"><img alt="国内微博和Twitter的最大不同" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/15.jpg" width="150" /></a><a class="wp_rp_title" href="https://coolshell.cn/articles/5247.html">国内微博和Twitter的最大不同</a></li><li><a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/25.html"><img alt="如何上网觅无踪" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/5.jpg" width="150" /></a><a class="wp_rp_title" href="https://coolshell.cn/articles/25.html">如何上网觅无踪</a></li><li><a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/4811.html"><img alt="软件真的好难做啊" height="150" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/0.jpg" width="150" /></a><a class="wp_rp_title" href="https://coolshell.cn/articles/4811.html">软件真的好难做啊</a></li><li><a class="wp_rp_thumbnail" href="https://coolshell.cn/articles/894.html"><img alt="将vim变得简单:如何在vim中得到你最喜爱的IDE特性" height="150" src="https://coolshell.cn/wp-content/uploads/2009/05/vimtxt_gvim_ars-150x150.jpg" width="150" /></a><a class="wp_rp_title" href="https://coolshell.cn/articles/894.html">将vim变得简单:如何在vim中得到你最喜爱的IDE特性</a></li></ul></div></div>The post <a href="https://coolshell.cn/articles/22367.html">聊聊 nostr 和 审查</a> first appeared on <a href="https://coolshell.cn">酷 壳 - CoolShell</a>.
+<p><strong>（转载本站文章请注明作者和出处 <a href="https://coolshell.cn/" rel="noopener noreferrer" target="_blank">酷 壳 – CoolShell</a> ，请勿用于任何商业用途）</strong></p>
+
+<h3>相关文章</h3><ul><li><a href="https://coolshell.cn/articles/18654.html" rel="noopener noreferrer" target="_blank"><img alt="记一次Kubernetes/Docker网络排障" src="https://coolshell.cn/wp-content/uploads/2018/12/docker-networking-1-150x150.png"/></a><a href="https://coolshell.cn/articles/18654.html" rel="noopener noreferrer" target="_blank">记一次Kubernetes/Docker网络排障</a></li><li><a href="https://coolshell.cn/articles/9859.html" rel="noopener noreferrer" target="_blank"><img alt="Alan Cox：单向链表中prev指针的妙用" src="https://coolshell.cn/wp-content/uploads/2013/06/Alan-Cox-150x150.jpg"/></a><a href="https://coolshell.cn/articles/9859.html" rel="noopener noreferrer" target="_blank">Alan Cox：单向链表中prev指针的妙用</a></li><li><a href="https://coolshell.cn/articles/5247.html" rel="noopener noreferrer" target="_blank"><img alt="国内微博和Twitter的最大不同" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/15.jpg"/></a><a href="https://coolshell.cn/articles/5247.html" rel="noopener noreferrer" target="_blank">国内微博和Twitter的最大不同</a></li><li><a href="https://coolshell.cn/articles/25.html" rel="noopener noreferrer" target="_blank"><img alt="如何上网觅无踪" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/5.jpg"/></a><a href="https://coolshell.cn/articles/25.html" rel="noopener noreferrer" target="_blank">如何上网觅无踪</a></li><li><a href="https://coolshell.cn/articles/4811.html" rel="noopener noreferrer" target="_blank"><img alt="软件真的好难做啊" src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/0.jpg"/></a><a href="https://coolshell.cn/articles/4811.html" rel="noopener noreferrer" target="_blank">软件真的好难做啊</a></li><li><a href="https://coolshell.cn/articles/894.html" rel="noopener noreferrer" target="_blank"><img alt="将vim变得简单:如何在vim中得到你最喜爱的IDE特性" src="https://coolshell.cn/wp-content/uploads/2009/05/vimtxt_gvim_ars-150x150.jpg"/></a><a href="https://coolshell.cn/articles/894.html" rel="noopener noreferrer" target="_blank">将vim变得简单:如何在vim中得到你最喜爱的IDE特性</a></li></ul>The post <a href="https://coolshell.cn/articles/22367.html" rel="noopener noreferrer" target="_blank">聊聊 nostr 和 审查</a> first appeared on <a href="https://coolshell.cn" rel="noopener noreferrer" target="_blank">酷 壳 - CoolShell</a>.
     </div>
     
     <div class="article-images">
         <h3>相关图片</h3>
+        <div class="image-item">
+            <img src="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://coolshell.cn/wp-content/uploads/2023/02/IMG_2533-300x289.jpg" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://coolshell.cn/wp-content/uploads/2018/12/docker-networking-1-150x150.png" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://coolshell.cn/wp-content/uploads/2013/06/Alan-Cox-150x150.jpg" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/15.jpg" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/5.jpg" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://coolshell.cn/wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/0.jpg" alt="图片">
+        </div>
+        <div class="image-item">
+            <img src="https://coolshell.cn/wp-content/uploads/2009/05/vimtxt_gvim_ars-150x150.jpg" alt="图片">
+        </div>
         <div class="image-item">
             <img src="https://coolshell.cn/wp-content/uploads/2023/02/nostr-aplicacion-descentralizada-1140x570-1-300x150.png" alt="图片">
         </div>
@@ -267,7 +288,7 @@ The post &lt;a href=&#34;https://coolshell.cn/articles/22367.html&#34;&gt;聊聊
             </div>
             <div class="footer-bottom">
                 <p>© 2025-02-27 内容聚合平台 - 自动聚合各大网站优质内容</p>
-                <p>生成时间: 2025-02-27 14:47:06</p>
+                <p>生成时间: 2025-02-27 15:08:31</p>
             </div>
         </div>
     </footer>
