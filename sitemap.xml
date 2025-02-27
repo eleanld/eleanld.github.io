@@ -7,13 +7,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://example.com/category/知识/</loc>
+    <loc>http://example.com/category/编程/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://example.com/category/编程/</loc>
+    <loc>http://example.com/category/知识/</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -224,6 +224,12 @@
   </url>
   <url>
     <loc>http://example.com/article/b93fe492c341644eff6cfbb6da7574ac.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://example.com/article/e1017a7e2f00ca296df9bd892d028bec.html</loc>
     <lastmod>2025-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
